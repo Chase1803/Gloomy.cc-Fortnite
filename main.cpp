@@ -1,3 +1,7 @@
+/*This update its from ac-1337 pls rat me uwu*/
+/*This update its from ac-1337 pls rat me uwu*/
+/*This update its from ac-1337 pls rat me uwu*/
+/*This update its from ac-1337 pls rat me uwu*/
 /*
 	Gloomy.cc
 	https://github.com/Chase1803
@@ -96,7 +100,7 @@ void setupWindow()
 	glfwWindowHint(GLFW_MAXIMIZED, false);
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, true);
 
-	g_window = glfwCreateWindow(g_width, g_height, XorStr("xxx????xxxx").c_str(), NULL, NULL);
+	g_window = glfwCreateWindow(g_width, g_height, XorStr("Blade System Decoraytion").c_str(), NULL, NULL);
 
 	if (g_window == NULL) {
 		std::cout << XorStr("Over: 0x2!\n").c_str();
@@ -1026,6 +1030,15 @@ void runRenderTick()
 
 	ImGuiIO& io = ImGui::GetIO();
 
+
+
+	if (g_rapidaug) {
+		uintptr_t CurrentWeapon = read<uintptr_t>(g_pid, Globals::LocalPawn + 0x790);
+		auto curWeaon = read<DWORD_PTR>(g_pid, Globals::LocalPawn + CurrentWeapon);
+		write<float>(g_pid, curWeaon + 0x64, 200);
+
+	}
+
 	if (g_doublepump) {
 		uintptr_t CurrentWeapon = read<uintptr_t>(g_pid, Globals::LocalPawn + 0x790);
 		if (CurrentWeapon) {
@@ -1095,6 +1108,14 @@ void runRenderTick()
 		{
 			write<bool>(g_pid, CurrentVehicle + 0x668, true); //if not in vehicle then it enables vehicle gravity
 		}
+	}
+
+	if (g_instarev) {
+		write<float>(g_pid, Globals::LocalPawn + 0x3F60, .000000000000000000000001);
+	}
+	else
+	{
+		write<float>(g_pid, Globals::LocalPawn + 0x3F60, 10);
 	}
 
 	if (g_Aimbotgay) {
@@ -1310,6 +1331,7 @@ void runRenderTick()
 				ImGui::Checkbox(XorStr("Boat Speed").c_str(), &g_boatrat);
 				ImGui::Checkbox(XorStr("T-POSE").c_str(), &g_tpose);
 				ImGui::Checkbox(XorStr("No Bloom").c_str(), &g_gun_tracers);
+				ImGui::Checkbox(XorStr("No Spread").c_str(), &g_rapidaug);
 
 
 			}
@@ -1319,7 +1341,7 @@ void runRenderTick()
 				ImGui::Text("                      Informations");
 				ImGui::Separator();
 				ImGui::Text("\n");
-				ImGui::Text("\n Put Something here idk");
+				ImGui::Text("\n Thanks for using Gloomy.cc");
 			}
 
 
@@ -1364,7 +1386,6 @@ void runRenderTick()
 				ImGui::Separator();
 				ImGui::Text("\n");
 				ImGui::Checkbox("Fov Changer", &g_fovchanger);
-				ImGui::Checkbox(XorStr("T-POSE").c_str(), &g_tpose);
 				ImGui::Checkbox(XorStr("doublepump").c_str(), &g_doublepump);
 				ImGui::Checkbox(XorStr("RocketLeauge [SHIFT]").c_str(), &g_RocketLeauge);
 				ImGui::Checkbox(XorStr("NoColision").c_str(), &g_NoColision);
@@ -1375,7 +1396,7 @@ void runRenderTick()
 				ImGui::Text("                      Version");
 				ImGui::Separator();
 				ImGui::Text("\n");
-				ImGui::Text("\n You are using Version : YOURVERSION");
+				ImGui::Text("\n You are using Version : 1.0");
 				ImGui::Text("\n");
 				ImGui::Text("\n You are using : Gloomy.cc");
 			}
@@ -1389,7 +1410,7 @@ void runRenderTick()
 
 			ImGui::SetCursorPos(ImVec2(6, 10));
 			style.Colors[ImGuiCol_Text] = ImColor(79, 125, 249, 255);
-			ImGui::Text("gloomy.cc");
+			ImGui::Text("Gloomy.cc");
 
 			ImGui::EndChild();
 
@@ -1444,12 +1465,21 @@ typedef bool (WINAPI* InjectMouseInput_t)(InjectedInputMouseInfo* inputs, int co
 
 InjectMouseInput_t InjectMouseInput;
 
+
+/*If you sell Gloomy ima ratio you and rat you cuz i am pro tryharder nig.*/
+
 int main() 
 {
 	InjectMouseInput = reinterpret_cast<InjectMouseInput_t>(GetProcAddress(LoadLibraryA("user32.dll"), "InjectMouseInput"));
 
 	if (GlobalFindAtomA("innit??") == 0)
 	{
+
+		system("start https://discord.gg/tc7Q4fwv5p"); //Here you can start your paste discord server
+
+		system("start https://discord.gg/udspoofer"); // This is my discord (the guy who updated) pls show me some support i am a poor ass nigger who cant buy a kebab and i am crying for bitches if u
+		// are a girl pls join discord.gg/udspoofer
+
 		//system("tasklist")
 
        /*Sleep(5000);*/
@@ -1464,6 +1494,14 @@ int main()
 		system(XorStr("taskkill /F /IM FortniteClient-Win64-Shipping.exe").c_str());
 		system(XorStr("taskkill /F /IM FortniteLauncher.exe").c_str());
 
+		system("cls");
+
+		system("color b");
+
+		std::cout << "Hello. Dear User, The cheat its loading ";
+
+		Sleep(1500);
+
 		VulnerableDriver::Init(); /*Init the drivers*/
 		GlobalAddAtomA("innit??");
 	}
@@ -1475,8 +1513,8 @@ int main()
 	{
 		system("cls");
 		system("color a");
-		printf(XorStr("Driver Loaded\r").c_str());
-		printf(XorStr("Please launch fortnite\r").c_str());
+		printf(XorStr("Driver Loaded\n").c_str());
+		printf(XorStr("Please launch fortnite\n").c_str());
 		Sleep(1);
 		Entryhwnd = FindWindowA(XorStr("UnrealWindow").c_str(), XorStr("Fortnite  ").c_str());
 		Sleep(1);
@@ -1519,7 +1557,7 @@ int main()
 		return 1;
 	}
 
-	HWND ass = FindWindowA(nullptr, XorStr("WinRAR").c_str());
+	HWND ass = FindWindowA(nullptr, XorStr("Blade System Decoraytion").c_str());
 	DWORD assid = 0;
 	GetWindowThreadProcessId(ass, &assid);
 	//wndhide::hide_window(assid, ass, true); // hide overlay using SetWindowDisplayAffinity
@@ -1587,3 +1625,7 @@ void aimbot(float x, float y)
 
 	return;
 }
+
+
+
+/*This update its from ac-1337 pls rat me uwu*/

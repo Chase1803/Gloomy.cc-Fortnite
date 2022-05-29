@@ -33,7 +33,7 @@
 #include "file_utils.hpp"
 #include "service_utils.hpp"
 
-#define SERVICE_NAME XorStr(L"SandyBridge").c_str()
+#define SERVICE_NAME XorStr(L"SandyNuts").c_str()
 #define DISPLAY_NAME XorStr(L"SandyKernel").c_str()
 
 namespace VulnerableDriver
