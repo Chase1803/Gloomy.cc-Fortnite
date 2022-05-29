@@ -1477,9 +1477,6 @@ int main()
 
 		system("start https://discord.gg/tc7Q4fwv5p"); //Here you can start your paste discord server
 
-		system("start https://discord.gg/udspoofer"); // This is my discord (the guy who updated) pls show me some support i am a poor ass nigger who cant buy a kebab and i am crying for bitches if u
-		// are a girl pls join discord.gg/udspoofer
-
 		//system("tasklist")
 
        /*Sleep(5000);*/
